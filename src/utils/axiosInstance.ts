@@ -13,6 +13,7 @@ axiosInstance.interceptors.request.use(async (req) => {
     req.headers.Authorization = `Bearer ${token.accessToken}`;
 
     const decodedToken = jwt_decode(token.accessToken)
+    // @ts-ignore
     const isExpired = dayjs.unix(decodedToken.exp).diff(dayjs()) < 1;
     console.log('isExpired: ', isExpired);
 
