@@ -14,6 +14,7 @@ interface Auth {
 
 }
 
+// @ts-ignore
 const AuthContext = createContext<Auth>({
   user: null,
   onLogin: (user: AuthDTO) => null,
@@ -63,9 +64,13 @@ const AuthProvider: FC = ({ children }): JSX.Element => {
     <AuthContext.Provider
       value={{
         user,
+        // @ts-ignore                  
         setData,
+        // @ts-ignore                  
         onLogin,
+        // @ts-ignore                 
         onLogOut,
+        // @ts-ignore                  
         onSignUp,
       }}
     >
